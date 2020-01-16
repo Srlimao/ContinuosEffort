@@ -7,7 +7,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206467174718857689}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 19a353345fa1cda4790f1d9772c70c35, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522f4a721e71a1a48a79bb08f25d001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trustSpeed: 800
+  trustSpeed: 200
   turnSpeed: 100
   prefabParticulaExplosao: {fileID: 1469142659871422, guid: 0d45332bbe592614b8c8915c6514f091,
     type: 3}
@@ -282,8 +282,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301630746147401956}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.2
+  m_Drag: 0.5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -517,6 +517,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 9d8623be922e05f49bfe492f1ce33527,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 608aefb29aecb0043a7d0e5616afeb9d, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 9d8623be922e05f49bfe492f1ce33527,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d88e5e0758f05f84eaeb2656678daef9, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 9d8623be922e05f49bfe492f1ce33527,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9952984e545bfc4ea55a7408a4f5896, type: 2}
     - target: {fileID: -927199367670048503, guid: 9d8623be922e05f49bfe492f1ce33527,
         type: 3}
       propertyPath: m_Name
