@@ -7,10 +7,13 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField] GeneralShip player = null;
+    [SerializeField] float loadTime = 2f;
     // Start is called before the first frame update
+
+    int nextScene = 0;
     void Start()
     {
-        
+        nextScene = GetNextSceneIndex();
     }
 
     // Update is called once per frame
@@ -38,7 +41,8 @@ public class GameController : MonoBehaviour
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1);
+        
+        SceneManager.LoadScene(nextScene);
     }
 
     private void LoadFirstScene()
@@ -50,7 +54,7 @@ public class GameController : MonoBehaviour
     {
         if (player.IsDying())
         {
-            Invoke("LoadFirstScene", 1);
+            Invoke("LoadFirstScene", loadTime);
             player.SetTranscending();
         }
         else
@@ -66,8 +70,21 @@ public class GameController : MonoBehaviour
         else
         if (player.IsWinning())
         {
-            Invoke("LoadNextScene", 1);
+
+            
+            Invoke("LoadNextScene", loadTime);
             player.SetTranscending();
         }
+    }
+
+    private int GetNextSceneIndex()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = index+1;
+        if (nextScene > SceneManager.sceneCountInBuildSettings)
+        {
+            nextScene = 0;
+        }
+        return nextScene;
     }
 }

@@ -24,6 +24,7 @@ public class GeneralShip : MonoBehaviour
     State state = State.Alive;
     bool isThrusting = false;
     float rotatingForce = 0f;
+    float thrustingForce = 0f;
     #endregion
 
 
@@ -96,16 +97,10 @@ public class GeneralShip : MonoBehaviour
     }
 
     #region InputProcess
+
     public void OnThrust(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
-        {
-            isThrusting = true;
-        }
-        if (ctx.canceled)
-        {
-            isThrusting = false;
-        }
+        thrustingForce = ctx.ReadValue<float>();
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -115,11 +110,12 @@ public class GeneralShip : MonoBehaviour
 
     private void Thrust()
     {
-        if(IsAlive() && isThrusting)
+        isThrusting = (thrustingForce > 0f);
+        if (IsAlive() && isThrusting)
         {
             prefabParticulaFire.Play();
             prefabLightFire.SetActive(true);
-            rb.AddRelativeForce(new Vector3(0f, trustSpeed * Time.deltaTime));
+            rb.AddRelativeForce(new Vector3(0f, thrustingForce*trustSpeed * Time.deltaTime));
 
             if (!audioSource.isPlaying)
             {

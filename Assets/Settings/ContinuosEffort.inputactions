@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "29152718-4c22-4647-aaeb-773cc1741a51",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -23,9 +23,9 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d9e0508e-7904-4aee-b4f6-9d3057068d58",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
